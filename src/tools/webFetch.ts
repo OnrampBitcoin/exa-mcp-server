@@ -6,7 +6,7 @@ import { createRequestLogger } from "../utils/logger.js";
 import { retryWithBackoff, formatToolError } from "../utils/errorHandler.js";
 import { sanitizeContentsResponse } from "../utils/exaResponseSanitizer.js";
 import { lenientOptionalPositiveNumber } from "./validation.js";
-import { checkpoint } from "agnost";
+import { checkpoint } from "../utils/checkpoint.js";
 
 interface CrawlStatus {
   id: string;

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { checkpoint } from "agnost";
+import { checkpoint } from "../utils/checkpoint.js";
 import type { AgentEffort, AgentRunInput } from "../types.js";
 import type { AgentApiClientConfig } from "../utils/agentApiClient.js";
 import { withAgentTool } from "../utils/agentTool.js";

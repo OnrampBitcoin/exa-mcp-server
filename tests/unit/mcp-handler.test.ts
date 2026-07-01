@@ -2,12 +2,6 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { initializeMcpServer } from "../../src/mcp-handler.js";
 import { FakeMcpServer } from "../helpers/fakeMcpServer.js";
 
-vi.mock("agnost", () => ({
-  checkpoint: vi.fn(),
-  createConfig: vi.fn((config: unknown) => config),
-  trackMCP: vi.fn(),
-}));
-
 describe("initializeMcpServer", () => {
   beforeEach(() => {
     vi.spyOn(console, "error").mockImplementation(() => undefined);

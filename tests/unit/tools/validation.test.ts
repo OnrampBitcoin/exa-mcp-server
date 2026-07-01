@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { z } from "zod";
 import { zodToJsonSchema } from "zod-to-json-schema";
 import {
@@ -8,8 +8,6 @@ import {
   lenientString,
 } from "../../../src/tools/validation.js";
 import { FakeMcpServer } from "../../helpers/fakeMcpServer.js";
-
-vi.mock("agnost", () => ({ checkpoint: vi.fn() }));
 
 describe("validation helpers", () => {
   describe("lenientString", () => {
