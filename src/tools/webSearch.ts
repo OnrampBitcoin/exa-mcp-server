@@ -7,7 +7,7 @@ import { createRequestLogger } from "../utils/logger.js";
 import { retryWithBackoff, formatToolError } from "../utils/errorHandler.js";
 import { sanitizeSearchResponse } from "../utils/exaResponseSanitizer.js";
 import { lenientString, lenientOptionalNumber } from "./validation.js";
-import { checkpoint } from "agnost"
+import { checkpoint } from "../utils/checkpoint.js";
 
 type WebSearchConfig = {
   exaApiKey?: string;

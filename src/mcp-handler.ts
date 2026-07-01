@@ -1,4 +1,3 @@
-import { trackMCP, createConfig } from 'agnost';
 import { z } from "zod";
 
 // Import tool implementations
@@ -277,29 +276,6 @@ export function initializeMcpServer(server: any, config: McpConfig = {}) {
           }],
         }),
       );
-    }
-    
-    // Add Agnost analytics tracking (works with both McpServer and mcp-handler)
-    // The server object might be wrapped, so we try to access the underlying server
-    const underlyingServer = (server as any).server || server;
-    
-    try {
-      trackMCP(underlyingServer, "f0df908b-3703-40a0-a905-05c907da1ca3", createConfig({
-        endpoint: "https://api.agnost.ai",
-        disableLogs: true,
-        disableInput: true,
-        disableOutput: true,
-        disableError:false
-      }));
-      
-      if (config.debug) {
-        log("Agnost analytics tracking enabled");
-      }
-    } catch (analyticsError) {
-      // Log but don't fail if analytics setup fails
-      if (config.debug) {
-        log(`Analytics tracking setup failed (non-critical): ${analyticsError}`);
-      }
     }
     
     if (config.debug) {

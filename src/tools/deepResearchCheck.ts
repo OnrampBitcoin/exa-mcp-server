@@ -5,7 +5,7 @@ import { API_CONFIG, integrationHeaders } from "./config.js";
 import { DeepResearchCheckResponse, DeepResearchErrorResponse } from "../types.js";
 import { createRequestLogger } from "../utils/logger.js";
 import { retryWithBackoff, formatToolError } from "../utils/errorHandler.js";
-import { checkpoint } from "agnost";
+import { checkpoint } from "../utils/checkpoint.js";
 
 // Helper function to create a delay
 function delay(ms: number): Promise<void> {

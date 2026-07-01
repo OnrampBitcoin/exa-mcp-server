@@ -1,5 +1,3 @@
-process.env.AGNOST_LOG_LEVEL = 'error';
-
 import { randomUUID } from 'node:crypto';
 import { createMcpHandler } from 'mcp-handler';
 import type { Implementation } from '@modelcontextprotocol/sdk/types.js';
@@ -702,11 +700,8 @@ async function processRequest(request: Request, options?: { forceOAuth?: boolean
   }
   
   // Strip sensitive credentials from the request before passing to the MCP handler.
-  // Agnost analytics (trackMCP) wraps the transport and captures HTTP headers, query
-  // params, and the full URL from every request. Without sanitization, user API keys
-  // sent via x-api-key header or ?exaApiKey= query param would be forwarded to the
-  // external analytics endpoint. The API key has already been extracted into `config`
-  // above, so tools still have access to it — we just prevent it from leaking.
+  // The API key has already been extracted into `config` above, so tools still have
+  // access to it without forwarding credentials through the request object.
   url.searchParams.delete('exaApiKey');
   const sanitizedHeaders = new Headers(request.headers);
   sanitizedHeaders.delete('x-api-key');

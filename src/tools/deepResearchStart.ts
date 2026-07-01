@@ -6,7 +6,7 @@ import { DeepResearchRequest, DeepResearchStartResponse } from "../types.js";
 import { createRequestLogger } from "../utils/logger.js";
 import { retryWithBackoff, formatToolError } from "../utils/errorHandler.js";
 import { lenientString } from "./validation.js";
-import { checkpoint } from "agnost";
+import { checkpoint } from "../utils/checkpoint.js";
 
 export function registerDeepResearchStartTool(server: McpServer, config?: { exaApiKey?: string; userProvidedApiKey?: boolean }): void {
   server.tool(
